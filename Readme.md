@@ -2,7 +2,7 @@
 This repository is a collection of Tokio (Rust async runtime) patterns and examples
 
 ## Table of Contents
-### Part 1: <span style="color:yellow">Basic Operations</span>
+### Part 1: $\color{yellow}{\textsf{Basic Operations}}$
 #### Section 1. [Manual Tokio Runtime Creation](basic_operations/tokio_main_macro.md)
 
 Instead of using the `#[tokio::main]` macro, manually create a Tokio runtime
@@ -15,7 +15,7 @@ Configure the runtime to use 2 worker threads
 
 This code demonstrates how to create a **single-threaded** Tokio runtime using `new_current_thread()` instead of a multi-threaded runtime.
 
-### Part 2: <span style="color:yellow">Spawning</span>
+### Part 2: $\color{yellow}{\textsf{Spawning}}$
 
 #### Section 1: [Async Function](spawning/async_function.md)
 
@@ -33,7 +33,7 @@ This code demonstrates how to stop a running asynchronous task before it complet
 
 This code demonstrates Rust's Send trait enforcement for data shared across asynchronous tasks.
 
-### Part 3: <span style="color:yellow">Shared State</span><br>
+### Part 3: $\color{yellow}{\textsf{Shared State}}$
 #### Section 1. [How Arc Shares Immutable Data Across Multiple Tasks](shared_state/arc_sharing_explanation.md)
 
 This code demonstrates reference-counted thread-safe sharing of immutable data using Arc
