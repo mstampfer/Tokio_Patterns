@@ -126,12 +126,12 @@ This code demonstrates how a watch channel broadcasts state changes to multiple 
 #### Section 1. [Future Trait Basics](async_in_depth/future_explanation.md)
 #### Section 2. [Returning Different Future Types Using Trait Objects in Rust](async_in_depth/trait_object_futures.md)
 #### Section 3. [Manual Future Implementation](async_in_depth/immediate_future_implementation.md)
-#### Section 4. [](async_in_depth/)
-#### Section 5. [](async_in_depth/)
-#### Section 6. [](async_in_depth/)
-#### Section 7. [](async_in_depth/)
-#### Section 8. [](async_in_depth/)
-#### Section 9. [](async_in_depth/)
+#### Section 4. [Creating a Future That Returns Pending Once Before Completing](async_in_depth/pending_once_future.md)
+#### Section 5. [Understanding Pinning in Self-Referential Structs](async_in_depth/pinning_self_referential.md)
+#### Section 6. [Understanding Async Blocks and Lazy Execution in Rust](async_in_depth/async_blocks_and_lazy_execution.md)
+#### Section 7. [Running Multiple Futures Concurrently with tokio::join!](async_in_depth/tokio_join_concurrent.md0)
+#### Section 8. [Handling Multiple Fallible Futures with tokio::try_join!](async_in_depth/tokio_try_join_faillable.md)
+#### Section 9. [Building a Simple Future Executor with Custom Waker](async_in_depth/custom_executor_polling.md)
     
 ### Part 8: $\color{yellow}{\textsf{Select}}$
 #### Section 1. [](select/)
