@@ -95,26 +95,37 @@ This code demonstrates how a watch channel broadcasts state changes to multiple 
 #### Section 4. [Reading a File Line by Line with Tokio's BufReader](io/reading_files_with_BufReader.md)
 
 #### Section 5. [TCP Echo Server in Rust with Tokio](io/tcp_echo_server.md)
-#### Section 6. [](io/)
-#### Section 7. [](io/)
-#### Section 8. [](io/)
-#### Section 9. [](io/)
+
+#### Section 6. [TCP Client in Rust with Tokio](io/tcp_client_explanation.md)
+
+#### Section 7. [TCP Stream Splitting in Tokio](io/tcp_split_streaming_explanation.md)
+
+#### Section 8. [TCP Stream Splitting in Tokio](io/tcp_split_streaming_explanation.md)
+
+#### Section 9. [Understanding Tokio Timeout with I/O Operations](io/tokio_timeout_explanation.md)
     
 ### Part 6: $\color{yellow}{\textsf{Framing}}$
-#### Section 1. [](framing/)
-#### Section 2. [](framing/)
-#### Section 3. [](framing/)
-#### Section 4. [](framing/)
-#### Section 5. [](framing/)
-#### Section 6. [](framing/)
-#### Section 7. [](framing/)
-#### Section 8. [](framing/)
-#### Section 9. [](framing/)
+
+#### Section 1. [Understandi1ng LinesCodec in Tokio](framing/lines_codec_explanation.md)
+
+#### Section 2. [Framed TCP Messaging with SinkExt](framing/framed_tcp_explanation.md)
+
+#### Section 3. [Length-Delimited Framing in Rust with LengthDelimitedCodec](framing/length_delimited_codec_explanation.md)
+
+#### Section 4. [Custom Decoder Implementation for a Simple Protocol](framing/custom_decoder_explanation.md)
+
+#### Section 5. [Custom Encoder Implementation for a Simple Protocol](framing/custom_encoder_explanation.md)
+
+#### Section 6. [Complete Codec Implementation: Encoder and Decoder](framing/codec_implementation_guide.md)
+
+#### Section 7. [JSON Codec with Length Prefixes](framing/json_codex_explanation.md)
+
+#### Section 8. [Handling Partial Frames in a Custom Decoder](framing/partial_frame_handling.md)
     
 ### Part 7: $\color{yellow}{\textsf{Async in Depth}}$
-#### Section 1. [](async_in_depth/)
-#### Section 2. [](async_in_depth/)
-#### Section 3. [](async_in_depth/)
+#### Section 1. [Future Trait Basics](async_in_depth/future_explanation.md)
+#### Section 2. [Returning Different Future Types Using Trait Objects in Rust](async_in_depth/trait_object_futures.md)
+#### Section 3. [Manual Future Implementation](async_in_depth/immediate_future_implementation.md)
 #### Section 4. [](async_in_depth/)
 #### Section 5. [](async_in_depth/)
 #### Section 6. [](async_in_depth/)
