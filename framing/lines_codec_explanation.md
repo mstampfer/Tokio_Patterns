@@ -1,5 +1,10 @@
 # Understanding LinesCodec in Tokio
 
+### Overview
+
+`LinesCodec` is a decoder/encoder that handles newline-delimited text protocols. It automatically splits incoming TCP data into separate messages based on newline characters (`\n` or `\r\n`).
+
+
 ## Complete Code
 
 ```rust
@@ -26,12 +31,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 }
 ```
-
 ## How LinesCodec Reads Newline-Delimited Messages
-
-### Overview
-
-`LinesCodec` is a decoder/encoder that handles newline-delimited text protocols. It automatically splits incoming TCP data into separate messages based on newline characters (`\n` or `\r\n`).
 
 ### Step-by-Step Process
 

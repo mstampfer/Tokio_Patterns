@@ -67,71 +67,151 @@ This code demonstrates how a watch channel broadcasts state changes to multiple 
 
 ### Part 4: $\color{yellow}{\textsf{Channels}}$
 
-#### Section 1. [Tokio MPSC Channel Explanation](channels/mpsc_explanation.md)
+#### Section 1. [Tokio MPSC Channel Explanation](channels/mpsc_channel_creation.md)
+
+This document demonstrates asynchronous communication between tasks using Tokio's multi-producer, single-consumer (mpsc) channel.
 
 #### Section 2. [Tokio MPSC: Multiple Sender Tasks Explanation](channels/mpsc_explanation.md)
 
+This code demonstrates Tokio's multi-producer, single-consumer (mpsc) channel pattern, where multiple concurrent tasks send messages to a single receiver.
+
 #### Section 3. [Tokio MPSC Backpressure Handling](channels/backpressure_explanation.md)
+
+This code demonstrates how Tokio's mpsc (multi-producer, single-consumer) channel handles backpressure using a bounded buffer.
 
 #### Section 4. [Oneshot Channel: Request-Response Pattern](channels/oneshot_channel_explanation.md)
 
+A oneshot channel is a specialized communication primitive in Tokio designed for single-use, one-time message passing between asynchronous tasks.
+
 #### Section 5. [Understanding Tokio Broadcast Channels](channels/broadcase_channel_explaination.md)
+
+This code demonstrates how to use Tokio's broadcast channel to send messages from one sender to multiple receivers concurrently. 
 
 #### Section 6. [How Tokio MPSC Channels Handle Sender Drops and Closure](channels/tokio_channel_closure.md)
 
+When working with Tokio's mpsc channels, understanding how channel closure works is crucial for building reliable concurrent applications
+
 #### Section 7. [Understanding try_send in Tokio MPSC Channels](channels/tokio_try_send_explained.md)
 
-#### Section 8. [Request-Response Pattern in Tokio Using Oneshot Channels](channels/channels/request_response_pattern.md)
+Tokio's mpsc channels provide two main methods for sending messages: send() and try_send().
 
-#### Section 9. [Using tokio::select! to Wait on Multiple Channels](channels/tokio%20select%20explained.md)
+#### Section 8. [Request-Response Pattern in Tokio Using Oneshot Channels](channels/request_response_pattern.md)
+
+The request-response pattern is a common communication pattern where a client sends a request to a worker and waits for a response. 
+
+#### Section 9. [Using tokio::select! to Wait on Multiple Channels](channels/tokio_select_explained.md)
+
+The tokio::select! macro allows you to wait on multiple async operations simultaneously and proceed with whichever completes first. 
     
 ### Part 5: $\color{yellow}{\textsf{I/O}}$
+
 #### Section 1. [Asynchronous File Reading in Rust with Tokio](io/async_file_reading_explanation.md)
+
+This code explains how to write files asynchronously with Tokio.
 
 #### Section 2. [Asynchronous File Writing in Rust with Tokio](io/async_file_writing_explanation.md)
 
+This code explains how to read files asynchronously with Tokio.
+
 #### Section 3. [Async File Copy in Rust with Tokio](io/async_file_copy.md)
+
+This code explains how to read copy asynchronously with Tokio.
 
 #### Section 4. [Reading a File Line by Line with Tokio's BufReader](io/reading_files_with_BufReader.md)
 
+This code explains how to use Tokio's BufReader to read files asynchronously.
+
 #### Section 5. [TCP Echo Server in Rust with Tokio](io/tcp_echo_server.md)
+
+This code implements a simple asynchronous TCP echo server using Rust and the Tokio runtime.
 
 #### Section 6. [TCP Client in Rust with Tokio](io/tcp_client_explanation.md)
 
+This code creates a TCP (Transmission Control Protocol) client that connects to a server, sends data, and receives a response.
+
 #### Section 7. [TCP Stream Splitting in Tokio](io/tcp_split_streaming_explanation.md)
+
+This document explains how Tokio allows you to split a TCP stream into separate read and write halves, enabling concurrent read and write operations on the same connection.
 
 #### Section 8. [TCP Stream Splitting in Tokio](io/tcp_split_streaming_explanation.md)
 
+This document explains how Tokio allows you to split a TCP stream into separate read and write halves, enabling concurrent read and write operations on the same connection.
+
 #### Section 9. [Understanding Tokio Timeout with I/O Operations](io/tokio_timeout_explanation.md)
+
+This document explains how to add timeouts to asynchronous I/O operations in Rust using tokio::time::timeout. 
     
 ### Part 6: $\color{yellow}{\textsf{Framing}}$
 
 #### Section 1. [Understandi1ng LinesCodec in Tokio](framing/lines_codec_explanation.md)
 
+`LinesCodec` is a decoder/encoder that handles newline-delimited text protocols. 
+
 #### Section 2. [Framed TCP Messaging with SinkExt](framing/framed_tcp_explanation.md)
+
+This code demonstrates how to use SinkExt from the futures crate to send framed messages over a TCP stream in Rust.
 
 #### Section 3. [Length-Delimited Framing in Rust with LengthDelimitedCodec](framing/length_delimited_codec_explanation.md)
 
+The LengthDelimitedCodec from the tokio-util crate provides automatic message framing for TCP streams by prefixing each message with its length. 
+
 #### Section 4. [Custom Decoder Implementation for a Simple Protocol](framing/custom_decoder_explanation.md)
+
+This document explains how to implement a custom decoder using Tokio's Decoder trait for a simple binary protocol.
 
 #### Section 5. [Custom Encoder Implementation for a Simple Protocol](framing/custom_encoder_explanation.md)
 
+This code implements a custom encoder for a simple binary protocol using Tokio's Encoder trait.
+
 #### Section 6. [Complete Codec Implementation: Encoder and Decoder](framing/codec_implementation_guide.md)
+
+This code demonstrates how to create a unified codec struct that implements both the `Encoder` and `Decoder` traits from Tokio for bidirectional communication over network connections.
 
 #### Section 7. [JSON Codec with Length Prefixes](framing/json_codex_explanation.md)
 
+This code creates a custom codec that combines JSON serialization with length-delimited framing. 
+
 #### Section 8. [Handling Partial Frames in a Custom Decoder](framing/partial_frame_handling.md)
+
+This decoder implements a length-prefixed protocol that gracefully handles partial frames - situations where a complete message hasn't arrived yet over the network. 
     
 ### Part 7: $\color{yellow}{\textsf{Async in Depth}}$
+
 #### Section 1. [Future Trait Basics](async_in_depth/future_explanation.md)
+
+When you declare a function with async fn, Rust automatically transforms it into a function that returns a type implementing Future. 
+
 #### Section 2. [Returning Different Future Types Using Trait Objects in Rust](async_in_depth/trait_object_futures.md)
+
+Each async fn creates a unique, anonymous future type. Even though both functions have the same signature, they generate different types:
+
 #### Section 3. [Manual Future Implementation](async_in_depth/immediate_future_implementation.md)
+
+The Future trait is the foundation of async/await in Rust:
+
 #### Section 4. [Creating a Future That Returns Pending Once Before Completing](async_in_depth/pending_once_future.md)
+
+This code demonstrates a fundamental async pattern: returning Pending to defer completion. 
+
 #### Section 5. [Understanding Pinning in Self-Referential Structs](async_in_depth/pinning_self_referential.md)
+
+This code explains how pinning works in a self-referential struct.
+
 #### Section 6. [Understanding Async Blocks and Lazy Execution in Rust](async_in_depth/async_blocks_and_lazy_execution.md)
-#### Section 7. [Running Multiple Futures Concurrently with tokio::join!](async_in_depth/tokio_join_concurrent.md0)
+
+An async block is a way to create a future inline. 
+
+#### Section 7. [Running Multiple Futures Concurrently with tokio::join!](async_in_depth/tokio_join_concurrent.md)
+
+tokio::join! is a macro that runs multiple futures concurrently and waits for all of them to complete:
+
 #### Section 8. [Handling Multiple Fallible Futures with tokio::try_join!](async_in_depth/tokio_try_join_faillable.md)
+
+tokio::try_join! is a variant of tokio::join! designed specifically for futures that return Result.
+
 #### Section 9. [Building a Simple Future Executor with Custom Waker](async_in_depth/custom_executor_polling.md)
+
+An executor is the runtime system that drives futures to completion. 
     
 ### Part 8: $\color{yellow}{\textsf{Select}}$
 #### Section 1. [](select/)
