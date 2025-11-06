@@ -2,6 +2,31 @@
 
 This code demonstrates **reference-counted thread-safe sharing** of immutable data using `Arc` (Atomic Reference Counted). Here's how it works:
 
+## Full Code Example
+
+```rust
+use std::sync::Arc;
+
+#[tokio::main]
+async fn main() {
+    let data = Arc::new(vec![1, 2, 3, 4, 5]);
+    
+    let mut handles = vec![];
+    
+    for i in 0..3 {
+        let data_clone = Arc::clone(&data);
+        let handle = tokio::spawn(async move {
+            println!("Task {} sees: {:?}", i, data_clone);
+        });
+        handles.push(handle);
+    }
+    
+    for handle in handles {
+        handle.await.unwrap();
+    }
+}
+```
+
 ## Key Mechanisms
 
 **1. Creating the Shared Data**
@@ -42,31 +67,6 @@ Task 1 sees: [1, 2, 3, 4, 5]
 Task 2 sees: [1, 2, 3, 4, 5]
 ```
 (Order may vary due to concurrent execution)
-
-## Full Code Example
-
-```rust
-use std::sync::Arc;
-
-#[tokio::main]
-async fn main() {
-    let data = Arc::new(vec![1, 2, 3, 4, 5]);
-    
-    let mut handles = vec![];
-    
-    for i in 0..3 {
-        let data_clone = Arc::clone(&data);
-        let handle = tokio::spawn(async move {
-            println!("Task {} sees: {:?}", i, data_clone);
-        });
-        handles.push(handle);
-    }
-    
-    for handle in handles {
-        handle.await.unwrap();
-    }
-}
-```
 
 ## Note on Mutability
 
