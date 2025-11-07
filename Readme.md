@@ -214,22 +214,63 @@ tokio::try_join! is a variant of tokio::join! designed specifically for futures 
 An executor is the runtime system that drives futures to completion. 
     
 ### Part 8: $\color{yellow}{\textsf{Select}}$
-#### Section 1. [](select/)
-#### Section 2. [](select/)
-#### Section 3. [](select/)
-#### Section 4. [](select/)
-#### Section 5. [](select/)
-#### Section 6. [](select/)
-#### Section 7. [](select/)
-#### Section 8. [](select/)
-#### Section 9. [](select/)
+#### Section 1. [Understanding tokio::select! - Waiting for the First Operation](select/basic_select.md)
+
+The select! macro polls multiple async operations concurrently and proceeds with whichever one completes first.
+
+#### Section 2. [Understanding tokio::select! - Channel Receive with Timeout](select/tokio_select_channel_timeout.md)
+
+This code demonstrates a common async pattern: attempting to receive a message from a channel with a timeout.
+
+#### Section 3. [Pattern Matching with Enum Messages in Tokio Channels](select/tokio_pattern_matching_select.md)
+
+This code demonstrates how to use Rust's pattern matching to handle different types of messages received from a tokio channel.
+
+#### Section 4. [Using tokio::select! in a Loop with Multiple Channels](select/tokio_select_multiple_channels.md)
+
+This code demonstrates a common async pattern: attempting to receive a message from a channel with a timeout. 
+
+#### Section 5. [Understanding Biased Selection in tokio::select!](select/tokio_biases_selection.md)
+
+This code demonstrates how to use **biased selection** in `tokio::select!` to prioritize certain branches over others. By default, `select!` 
+
+#### Section 6. [Handling Cancellation-Unsafe Operations in `tokio::select!`](select/tokio_cancellation_safety.md)
+
+This code demonstrates how to correctly handle **cancellation-unsafe operations** when using `tokio::select!`. 
+
+#### Section 7. [](select/tokio_select_channel_types.md)
+
+This code demonstrates how to use `tokio::select!` to concurrently wait on three different types of Tokio channels: **MPSC**, **Oneshot**, and **Broadcast**. 
+
+#### Section 8. [Graceful Shutdown Pattern with tokio::select!](select/toklio_graceful_shutdown.md)
+
+This code demonstrates a **graceful shutdown pattern** - one of the most important patterns in async Rust programming.
+
+#### Section 9. [Resetting Timeout Pattern with tokio::select!](select/tokio_reset_timeout.md)
     
+This code demonstrates a **resetting timeout pattern** - a technique where a timeout is continuously reset each time activity occurs.
+
 ### Part 9: $\color{yellow}{\textsf{Streams}}$
-#### Section 1. [](streams/)
-#### Section 2. [](streams/)
-#### Section 3. [](streams/)
-#### Section 4. [](streams/)
-#### Section 5. [](streams/)
+#### Section 1. [Iterating Over Streams with while let Some](streams/stream_iteration.md)
+
+This code demonstrates how to iterate over an async stream using the while let Some pattern. 
+
+#### Section 2. [Creating Streams from Iterators with tokio](streams/stream_from_iterator.md)
+
+This code demonstrates how to convert a synchronous iterator (like a Vec) into an asynchronous Stream using tokio_stream::iter.
+
+#### Section 3. [Transforming Stream Values with the `map` Combinator](streams/stream_map_combinator.md)
+
+This code demonstrates how to use the **`map` combinator** to transform values in a stream.
+
+#### Section 4. [Transforming Stream Values with the `filter` Combinator](streams/stream_filter_combinator.md)
+This code demonstrates how to use the **`filter` combinator** to selectively keep values in a stream based on a condition. 
+
+
+#### Section 5. [Async Stream Transformations with the `then` Combinator](streams/stream_then_combinator.md)
+
+This code demonstrates how to use the **`then` combinator** to perform asynchronous transformations on stream values. 
+
 #### Section 6. [](streams/)
 #### Section 7. [](streams/)
 #### Section 8. [](streams/)
