@@ -18,3 +18,21 @@ tokio-util = { version = "0.7", features = ["codec"] }
 bytes = "1"
 futures = "0.3"
 tokio-stream = "0.1"
+
+[package]
+name = "tokio-tutorial-patterns"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "A collection of Tokio patterns and examples complementing the official tutorial"
+keywords = ["tokio", "async", "patterns", "tutorial", "examples"]
+categories = ["asynchronous", "rust-patterns"]
+
+[dependencies]
+tokio.workspace = true
+tokio-stream.workspace = true
+
+[dev-dependencies]
+tokio-test = "0.4"
