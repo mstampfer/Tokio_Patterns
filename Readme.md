@@ -1,4 +1,4 @@
-# Tokio Patterns
+# Tokio Tutorial Patterns and Use Cases
 This repository is a collection of Tokio (Rust async runtime) patterns and examples
 
 ## Relationship to the Official Tokio Tutorial
