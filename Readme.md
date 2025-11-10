@@ -238,7 +238,7 @@ This code demonstrates how to use **biased selection** in `tokio::select!` to pr
 
 This code demonstrates how to correctly handle **cancellation-unsafe operations** when using `tokio::select!`. 
 
-#### Section 7. [](select/tokio_select_channel_types.md)
+#### Section 7. [Selecting from Different Channel Types in Tokio](select/tokio_select_channel_types.md)
 
 This code demonstrates how to use `tokio::select!` to concurrently wait on three different types of Tokio channels: **MPSC**, **Oneshot**, and **Broadcast**. 
 
