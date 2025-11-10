@@ -4,6 +4,56 @@
 
 This code demonstrates a **graceful shutdown pattern** - one of the most important patterns in async Rust programming. It shows how to build a worker task that continuously performs work while remaining responsive to shutdown signals, allowing for proper cleanup before terminating.
 
+Complete Code
+
+```rust
+use tokio::sync::mpsc;
+use tokio::time::{sleep, Duration, interval};
+
+#[tokio::main]
+async fn main() {
+    let (shutdown_tx, mut shutdown_rx) = mpsc::channel::<()>(1);
+    
+    let worker = tokio::spawn(async move {
+        let mut tick = interval(Duration::from_millis(100));
+        let mut counter = 0;
+        
+        loop {
+            tokio::select! {
+                _ = tick.tick() => {
+                    counter += 1;
+                    println!("Working... {}", counter);
+                }
+                _ = shutdown_rx.recv() => {
+                    println!("Shutdown signal received");
+                    // Perform cleanup
+                    break;
+                }
+            }
+        }
+        
+        println!("Worker shut down gracefully");
+    });
+    
+    // Let it work for a bit
+    sleep(Duration::from_millis(350)).await;
+    
+    // Send shutdown signal
+    shutdown_tx.send(()).await.unwrap();
+    
+    worker.await.unwrap();
+}
+```
+
+## Expected Output
+
+```
+Working... 1
+Working... 2
+Working... 3
+Shutdown signal received
+Worker shut down gracefully
+```
 ## The Graceful Shutdown Pattern
 
 A graceful shutdown has three key requirements:
@@ -196,57 +246,7 @@ loop {
 - Worker remains responsive even during ticks
 - Clean separation of work and shutdown logic
 
-## Complete Code
-
-```rust
-use tokio::sync::mpsc;
-use tokio::time::{sleep, Duration, interval};
-
-#[tokio::main]
-async fn main() {
-    let (shutdown_tx, mut shutdown_rx) = mpsc::channel::<()>(1);
-    
-    let worker = tokio::spawn(async move {
-        let mut tick = interval(Duration::from_millis(100));
-        let mut counter = 0;
-        
-        loop {
-            tokio::select! {
-                _ = tick.tick() => {
-                    counter += 1;
-                    println!("Working... {}", counter);
-                }
-                _ = shutdown_rx.recv() => {
-                    println!("Shutdown signal received");
-                    // Perform cleanup
-                    break;
-                }
-            }
-        }
-        
-        println!("Worker shut down gracefully");
-    });
-    
-    // Let it work for a bit
-    sleep(Duration::from_millis(350)).await;
-    
-    // Send shutdown signal
-    shutdown_tx.send(()).await.unwrap();
-    
-    worker.await.unwrap();
-}
-```
-
-## Expected Output
-
-```
-Working... 1
-Working... 2
-Working... 3
-Shutdown signal received
-Worker shut down gracefully
-```
-
+## 
 The worker completes 3-4 work cycles before receiving the shutdown signal and exiting gracefully.
 
 ## Advanced Pattern: Multiple Workers with Broadcast

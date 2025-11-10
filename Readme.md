@@ -42,7 +42,7 @@ This code demonstrates reference-counted thread-safe sharing of immutable data u
 
 This code demonstrates safe concurrent access to shared mutable state using Arc and Mutex
 
-#### Section 3. [How RwLock Enables Multiple Concurrent Readers](shared_state/rwlock_explanation.md)
+#### Section 3. [How `RwLock` Enables Multiple Concurrent Readers](shared_state/rwlock_explanation.md)
 
 This code demonstrates how RwLock (Read-Write Lock) enables multiple concurrent readers while maintaining exclusive access for writers. 
 
@@ -91,7 +91,7 @@ This code demonstrates how to use Tokio's broadcast channel to send messages fro
 
 When working with Tokio's mpsc channels, understanding how channel closure works is crucial for building reliable concurrent applications
 
-#### Section 7. [Understanding try_send in Tokio MPSC Channels](channels/tokio_try_send_explained.md)
+#### Section 7. [Understanding `try_send` in Tokio MPSC Channels](channels/tokio_try_send_explained.md)
 
 Tokio's mpsc channels provide two main methods for sending messages: send() and try_send().
 
@@ -99,7 +99,7 @@ Tokio's mpsc channels provide two main methods for sending messages: send() and 
 
 The request-response pattern is a common communication pattern where a client sends a request to a worker and waits for a response. 
 
-#### Section 9. [Using tokio::select! to Wait on Multiple Channels](channels/tokio_select_explained.md)
+#### Section 9. [Using `tokio::select!` to Wait on Multiple Channels](channels/tokio_select_explained.md)
 
 The tokio::select! macro allows you to wait on multiple async operations simultaneously and proceed with whichever completes first. 
     
@@ -143,15 +143,15 @@ This document explains how to add timeouts to asynchronous I/O operations in Rus
     
 ### Part 6: $\color{yellow}{\textsf{Framing}}$
 
-#### Section 1. [Understandi1ng LinesCodec in Tokio](framing/lines_codec_explanation.md)
+#### Section 1. [Understandi1ng `LinesCodec` in Tokio](framing/lines_codec_explanation.md)
 
 `LinesCodec` is a decoder/encoder that handles newline-delimited text protocols. 
 
-#### Section 2. [Framed TCP Messaging with SinkExt](framing/framed_tcp_explanation.md)
+#### Section 2. [Framed TCP Messaging with `SinkExt`](framing/framed_tcp_explanation.md)
 
 This code demonstrates how to use SinkExt from the futures crate to send framed messages over a TCP stream in Rust.
 
-#### Section 3. [Length-Delimited Framing in Rust with LengthDelimitedCodec](framing/length_delimited_codec_explanation.md)
+#### Section 3. [Length-Delimited Framing with `LengthDelimitedCodec`](framing/length_delimited_codec_explanation.md)
 
 The LengthDelimitedCodec from the tokio-util crate provides automatic message framing for TCP streams by prefixing each message with its length. 
 
@@ -201,11 +201,11 @@ This code explains how pinning works in a self-referential struct.
 
 An async block is a way to create a future inline. 
 
-#### Section 7. [Running Multiple Futures Concurrently with tokio::join!](async_in_depth/tokio_join_concurrent.md)
+#### Section 7. [Running Multiple Futures Concurrently with `tokio::join!`](async_in_depth/tokio_join_concurrent.md)
 
 tokio::join! is a macro that runs multiple futures concurrently and waits for all of them to complete:
 
-#### Section 8. [Handling Multiple Fallible Futures with tokio::try_join!](async_in_depth/tokio_try_join_faillable.md)
+#### Section 8. [Handling Multiple Fallible Futures with `tokio::try_join!`](async_in_depth/tokio_try_join_faillable.md)
 
 tokio::try_join! is a variant of tokio::join! designed specifically for futures that return Result.
 
@@ -214,11 +214,12 @@ tokio::try_join! is a variant of tokio::join! designed specifically for futures 
 An executor is the runtime system that drives futures to completion. 
     
 ### Part 8: $\color{yellow}{\textsf{Select}}$
-#### Section 1. [Understanding tokio::select! - Waiting for the First Operation](select/basic_select.md)
+
+#### Section 1. [Understanding `tokio::select!` - Waiting for the First Operation](select/basic_select.md)
 
 The select! macro polls multiple async operations concurrently and proceeds with whichever one completes first.
 
-#### Section 2. [Understanding tokio::select! - Channel Receive with Timeout](select/tokio_select_channel_timeout.md)
+#### Section 2. [Understanding `tokio::select!` - Channel Receive with Timeout](select/tokio_select_channel_timeout.md)
 
 This code demonstrates a common async pattern: attempting to receive a message from a channel with a timeout.
 
@@ -226,11 +227,11 @@ This code demonstrates a common async pattern: attempting to receive a message f
 
 This code demonstrates how to use Rust's pattern matching to handle different types of messages received from a tokio channel.
 
-#### Section 4. [Using tokio::select! in a Loop with Multiple Channels](select/tokio_select_multiple_channels.md)
+#### Section 4. [Using `tokio::select!` in a Loop with Multiple Channels](select/tokio_select_multiple_channels.md)
 
 This code demonstrates a common async pattern: attempting to receive a message from a channel with a timeout. 
 
-#### Section 5. [Understanding Biased Selection in tokio::select!](select/tokio_biases_selection.md)
+#### Section 5. [Understanding Biased Selection in `tokio::select!`](select/tokio_biases_selection.md)
 
 This code demonstrates how to use **biased selection** in `tokio::select!` to prioritize certain branches over others. By default, `select!` 
 
@@ -242,16 +243,16 @@ This code demonstrates how to correctly handle **cancellation-unsafe operations*
 
 This code demonstrates how to use `tokio::select!` to concurrently wait on three different types of Tokio channels: **MPSC**, **Oneshot**, and **Broadcast**. 
 
-#### Section 8. [Graceful Shutdown Pattern with tokio::select!](select/toklio_graceful_shutdown.md)
+#### Section 8. [Graceful Shutdown Pattern with `tokio::select!`](select/toklio_graceful_shutdown.md)
 
 This code demonstrates a **graceful shutdown pattern** - one of the most important patterns in async Rust programming.
 
-#### Section 9. [Resetting Timeout Pattern with tokio::select!](select/tokio_reset_timeout.md)
+#### Section 9. [Resetting Timeout Pattern with `tokio::select!`](select/tokio_reset_timeout.md)
     
 This code demonstrates a **resetting timeout pattern** - a technique where a timeout is continuously reset each time activity occurs.
 
 ### Part 9: $\color{yellow}{\textsf{Streams}}$
-#### Section 1. [Iterating Over Streams with while let Some](streams/stream_iteration.md)
+#### Section 1. [Iterating Over Streams with while `let Some`](streams/stream_iteration.md)
 
 This code demonstrates how to iterate over an async stream using the while let Some pattern. 
 
@@ -266,13 +267,36 @@ This code demonstrates how to use the **`map` combinator** to transform values i
 #### Section 4. [Transforming Stream Values with the `filter` Combinator](streams/stream_filter_combinator.md)
 This code demonstrates how to use the **`filter` combinator** to selectively keep values in a stream based on a condition. 
 
-
 #### Section 5. [Async Stream Transformations with the `then` Combinator](streams/stream_then_combinator.md)
 
 This code demonstrates how to use the **`then` combinator** to perform asynchronous transformations on stream values. 
 
-#### Section 6. [](streams/)
-#### Section 7. [](streams/)
-#### Section 8. [](streams/)
-#### Section 9. [](streams/)
+#### Section 6. [Applying Async Functions to Stream Elements with `then`](streams/)stream_then_async_transform.md)
+
+This code demonstrates how to use the **`then` combinator** to apply an asynchronous function to each element in a stream. 
+
+#### Section 7. [Selecting Stream Elements with `take` and `skip`](streams/stream_take_skip.md)
+
+This code demonstrates how to use the **`skip` and `take` combinators** to select specific elements from a stream.
+
+#### Section 8. [Aggregating Stream Values with `fold`](streams/stream_fold_combinator.md)
+
+This code demonstrates how to use the fold combinator to aggregate all values in a stream into a single result. 
+
+#### Section 9. [Concurrent Stream Processing with `buffer_unordered`](streams/stream_buffered_unordered.md)
+
+This code demonstrates how to use **`buffer_unordered`** to process stream items concurrently rather than sequentially. 
+
+#### Section 10. [Implementing a Custom Fibonacci Stream](streams/custom_fibonacci_stream.md)
+
+his code demonstrates how to implement a custom stream from scratch by implementing the **`Stream` trait**. 
+
+#### Section 11. [Creating a Throttled Stream with `zip` and `interval`](streams/stream_throttling.md)
+
+This code demonstrates how to create a throttled stream that emits values at a controlled rate. 
+
+#### Section 12. [Merging Multiple Streams with `StreamExt::merge`](streams/stream_merge.md)
+
+This code demonstrates how to use the **`merge` combinator** to combine two independent streams into a single unified stream. 
+
     
